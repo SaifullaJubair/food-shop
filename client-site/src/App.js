@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <div className="max-w-[1440px] mx-auto">
+    <div className="">
       <RouterProvider router={router}></RouterProvider>
       <ToastContainer />
       <h1 className="text-3xl">test</h1>

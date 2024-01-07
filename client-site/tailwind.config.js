@@ -2,7 +2,8 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    // themes: ["light", "dark", "cupcake"],
+    themes: false,
   },
   theme: {
     extend: {},
