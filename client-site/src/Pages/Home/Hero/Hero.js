@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-center items-center py-16">
           <div className="md:w-1/2 w-full relative z-20">
-            <h1 className="md:text-7xl text-5xl font-extrabold">
+            <h1 className="md:text-7xl text-6xl font-extrabold">
               <span className="text-[#2a435d]"> ENJOY OUR </span>
               <br /> <span className="text-[#2a435d]"> CHICKEN </span>{" "}
               <span className="text-red-700 "> BURGER </span> <br />{" "}
@@ -14,11 +14,6 @@ const Hero = () => {
             </h1>
           </div>
           <div className="md:w-1/2 w-full relative z-20">
-            {/* this is burger img of hero section */}
-            <img
-              src="https://html.softtechitltd.com/khadyo/khadyo/assets/images/shapes/sale.png"
-              alt=""
-            />
             <img
               src="https://html.softtechitltd.com/khadyo/khadyo/assets/images/menu-item/burger-promo.png"
               alt=""
@@ -26,7 +21,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* this is star relative img */}
+      {/* this is  relative bg img */}
       <img
         src="https://html.softtechitltd.com/khadyo/khadyo/assets/images/shapes/40.png"
         className="absolute top-0 left-0 md:w-96 w-60 opacity-75"

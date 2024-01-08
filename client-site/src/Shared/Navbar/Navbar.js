@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import Cart from "../../Pages/Home/Cart/Cart";
 
 const Navbar = () => {
+  const [cartVisible, setCartVisible] = useState(false);
+
+  // Toggle cart visibility
+  const toggleCart = () => {
+    setCartVisible(!cartVisible);
+  };
   return (
     <div className="bg-[#faf5f2]   border-t-2   border-red-400">
       <div className="navbar max-w-[1300px] mx-auto">
@@ -106,44 +112,19 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        {/* <div className="navbar-start hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li className=" my-2 md:my-0 lg:my-0">
-              <Link
-                to="/menu"
-                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
-              >
-                Menu
-              </Link>
-            </li>
-            <li className=" my-2 md:my-0 lg:my-0">
-              <Link
-                to="/category/all"
-                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
-              >
-                AllProducts
-              </Link>
-            </li>
-            <li className=" my-2 md:my-0 lg:my-0">
-              <Link
-                to="/rewards"
-                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
-              >
-                Rewards
-              </Link>
-            </li>
-          </ul>
-        </div> */}
+
         <div className="navbar-end">
           <div className=" flex items-center">
-            <div role="button" className="btn btn-ghost btn-circle">
-              <div
-                className="indicator"
-                onClick={() => {
-                  document.getElementById("cartSidebar").style.display =
-                    "block";
-                }}
-              >
+            <div
+              role="button"
+              className="btn btn-ghost btn-circle"
+              // onClick={() => {
+              //   document.getElementById("cartSidebar").style.display = "block";
+              // }}
+              onClick={toggleCart}
+            >
+              {/* cart icon */}
+              <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -168,7 +149,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <Cart></Cart>
+      <Cart toggleCart={toggleCart} cartVisible={cartVisible}></Cart>
     </div>
   );
 };

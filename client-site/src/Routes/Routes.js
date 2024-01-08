@@ -8,6 +8,7 @@ import Menu from "../Pages/Menu/Menu";
 import Locations from "../Pages/Locations/Locations";
 import Rewards from "../Pages/Rewards/Rewards";
 import GiftCards from "../Pages/GiftCards/GiftCards";
+import Food from "../Pages/Food/Food";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
         path: "/menu",
         element: <Menu></Menu>,
       },
+      {
+        path: "/menu/:category",
+        element: <Food></Food>,
+      },
+
       {
         path: "/rewards",
         element: <Rewards></Rewards>,
