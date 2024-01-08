@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Cart from "../../Pages/Home/Cart/Cart";
 
 const Navbar = () => {
   return (
@@ -30,7 +31,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 ac hover:text-red-700 duration-500"
                 >
                   Home
                 </Link>
@@ -38,7 +39,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/menu"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   Menu
                 </Link>
@@ -46,7 +47,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/rewards"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   Rewards
                 </Link>
@@ -65,7 +66,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/menu"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   MENU
                 </Link>
@@ -73,7 +74,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/rewards"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   REWARDS
                 </Link>
@@ -81,7 +82,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/locations"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   LOCATIONS
                 </Link>
@@ -89,7 +90,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/gift-card"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   GIFT CARDS
                 </Link>
@@ -97,7 +98,7 @@ const Navbar = () => {
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/login"
-                  className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
                   LOG IN
                 </Link>
@@ -110,7 +111,7 @@ const Navbar = () => {
             <li className=" my-2 md:my-0 lg:my-0">
               <Link
                 to="/menu"
-                className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
               >
                 Menu
               </Link>
@@ -118,7 +119,7 @@ const Navbar = () => {
             <li className=" my-2 md:my-0 lg:my-0">
               <Link
                 to="/category/all"
-                className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
               >
                 AllProducts
               </Link>
@@ -126,7 +127,7 @@ const Navbar = () => {
             <li className=" my-2 md:my-0 lg:my-0">
               <Link
                 to="/rewards"
-                className="md:ml-5 text-md font-semibold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
               >
                 Rewards
               </Link>
@@ -136,7 +137,13 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className=" flex items-center">
             <div role="button" className="btn btn-ghost btn-circle">
-              <div className="indicator">
+              <div
+                className="indicator"
+                onClick={() => {
+                  document.getElementById("cartSidebar").style.display =
+                    "block";
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -160,6 +167,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      <Cart></Cart>
     </div>
   );
 };
