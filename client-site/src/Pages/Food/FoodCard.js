@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 const FoodCard = ({ food }) => {
   const { _id, id, name, category, price, ratings, ratingsCount, img } = food;
   const [cart, setCart] = useState(false);
-  const { AddToCart } = useContext(AuthContext);
+  const { AddToCart, setCartRefetch, cartRefetch } = useContext(AuthContext);
   const handleAddToCart = (food) => {
     setCart((prevState) => !prevState);
     const cartData = {
@@ -35,6 +35,7 @@ const FoodCard = ({ food }) => {
           });
           setCart(true);
           AddToCart(cartData);
+          setCartRefetch(!cartRefetch);
         } else {
           toast.error(data.message, {
             position: toast.POSITION.TOP_CENTER,

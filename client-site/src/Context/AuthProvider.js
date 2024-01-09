@@ -5,6 +5,7 @@ const AuthProvider = ({ children }) => {
   // useState
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [cartRefetch, setCartRefetch] = useState(false);
 
   const AddToCart = (data) => {
     setCart([...cart, data]);
@@ -44,6 +45,8 @@ const AuthProvider = ({ children }) => {
     getLocalStorageCartData,
     removeProductCart,
     handleQuantity,
+    cartRefetch,
+    setCartRefetch,
   };
 
   return (

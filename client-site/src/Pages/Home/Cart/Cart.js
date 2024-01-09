@@ -7,17 +7,25 @@ const Cart = ({ toggleCart, cartVisible }) => {
   const [deleteData, setDeleteData] = useState(null);
   const [refetch, setRefetch] = useState(false);
   const [myCart, setMyCart] = useState([]);
-  const { removeProductCart, handleQuantity } = useContext(AuthContext);
+  const { removeProductCart, handleQuantity, cartRefetch, setCartRefetch } =
+    useContext(AuthContext);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     fetch("http://localhost:5000/my-cart")
       .then((res) => res.json())
       .then((data) => {
+        let total = 0;
+        data.forEach((item) => {
+          const subtotal = item.price * item.quantity;
+          total += subtotal;
+        });
+        setTotal(total);
         setMyCart(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [refetch]);
+  }, [refetch, cartRefetch]);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -43,6 +51,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
         if (data.deletedCount > 0) {
           setDeleteData(false);
           setRefetch(!refetch);
+          setCartRefetch(!cartRefetch);
         }
       })
       .catch((err) => {
@@ -73,64 +82,6 @@ const Cart = ({ toggleCart, cartVisible }) => {
     }
   };
 
-  // const handleAddToCart = () => {
-  //   const cartData = {
-  //     productId: singleProduct?._id,
-  //     userId: user?.uid,
-  //     userEmail: user?.email,
-  //     userName: user?.displayName,
-  //     selectedColor: selectedColor,
-  //     quantity: quantity,
-  //   };
-  //   // console.log("cartData:", cartData);
-  //   fetch(
-  //     `https://shovon-gallery-server.vercel.app/cart/${singleProduct?._id}?email=${user?.email}`
-  //   )
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       if (
-  //         data &&
-  //         data.productId === singleProduct?._id &&
-  //         data.userEmail === user?.email
-  //       ) {
-  //         // Product is already in the cart, show a toast notification
-  //         toast.error("This product is already in your cart", {
-  //           position: toast.POSITION.TOP_CENTER,
-  //         });
-  //       } else {
-  //         // Product is not in the cart, add it to the cart collection
-  //         fetch("https://shovon-gallery-server.vercel.app/add-cart", {
-  //           method: "POST",
-  //           headers: {
-  //             "content-type": "application/json",
-  //           },
-  //           body: JSON.stringify(cartData),
-  //         })
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             // Product added to cart successfully, show a success toast notification
-  //             toast.success("Product added to cart successfully", {
-  //               position: toast.POSITION.TOP_CENTER,
-  //             });
-  //             // Set cart to true after adding the product to the cart
-  //             setCart(true);
-  //             AddToCart(cartData);
-  //           })
-  //           .catch((error) => {
-  //             console.error("Error adding product to cart:", error);
-  //           });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error checking if product is in cart:", error);
-  //     });
-  // };
-
   return (
     <div
       style={{ display: cartVisible ? "block" : "none" }}
@@ -142,7 +93,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
           id="drawer-navigation-label"
           className="text-base font-semibold text-[#fe5443] flex items-center gap-2"
         >
-          <FaCartPlus className=""></FaCartPlus> Item
+          <FaCartPlus className=""></FaCartPlus> {myCart.length} Item
         </h5>
         <button
           onClick={() => {
@@ -203,7 +154,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
       {/* Place Order */}
       <div className="bg-white p-5 w-full absolute bottom-0">
         <p className="text-[#fe5443] font-semibold text-center">
-          Place Order: 25000$
+          Place Order: {total}$
         </p>
       </div>
     </div>
