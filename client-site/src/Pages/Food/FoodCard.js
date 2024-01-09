@@ -1,7 +1,7 @@
 import React from "react";
 
-const FoodCard = ({ product }) => {
-  const { name, category, price, ratings, ratingsCount, img } = product;
+const FoodCard = ({ food }) => {
+  const { name, category, price, ratings, ratingsCount, img } = food;
   return (
     <div className="max-w-xs rounded-md shadow-md bg-gray-50 pb-2 mx-auto text-gray-800 my-2  ">
       <img
