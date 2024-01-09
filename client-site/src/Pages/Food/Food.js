@@ -55,7 +55,7 @@ const Food = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn m-1 border  border-gray-400 bg-base-100"
+            className="btn m-1 border  border-gray-400   bg-base-100"
           >
             Menu
           </div>
@@ -74,7 +74,7 @@ const Food = () => {
             <li>
               <Link
                 className="p-2 m-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
-                to="All"
+                to="/menu/All"
               >
                 All
               </Link>

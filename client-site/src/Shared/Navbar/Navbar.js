@@ -30,24 +30,13 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li className=" my-2 md:my-0 lg:my-0">
-                <Link
-                  to="/"
-                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 ac hover:text-red-700 duration-500"
-                >
-                  Home
-                </Link>
-              </li>
+            <ul className="menu menu-sm dropdown-content mt-3 z-[50] p-2 shadow bg-base-100 rounded-box w-52">
               <li className=" my-2 md:my-0 lg:my-0">
                 <Link
                   to="/menu"
                   className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
-                  Menu
+                  MENU
                 </Link>
               </li>
               <li className=" my-2 md:my-0 lg:my-0">
@@ -55,7 +44,31 @@ const Navbar = () => {
                   to="/rewards"
                   className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
                 >
-                  Rewards
+                  REWARDS
+                </Link>
+              </li>
+              <li className=" my-2 md:my-0 lg:my-0">
+                <Link
+                  to="/locations"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                >
+                  LOCATIONS
+                </Link>
+              </li>
+              <li className=" my-2 md:my-0 lg:my-0">
+                <Link
+                  to="/gift-card"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                >
+                  GIFT CARDS
+                </Link>
+              </li>
+              <li className=" my-2 md:my-0 lg:my-0">
+                <Link
+                  to="/login"
+                  className="md:ml-5 text-md font-bold  text-gray-700 tracking-wide hover:bg-[#faf5f2] border-b-2 border-transparent hover:border-red-700 hover:text-red-700 duration-500"
+                >
+                  LOG IN
                 </Link>
               </li>
             </ul>

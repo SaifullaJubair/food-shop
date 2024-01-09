@@ -24,10 +24,11 @@ async function run() {
     const foodCategoryCollection = client
       .db("FoodShop")
       .collection("FoodCategory");
+    const cartCollection = client.db("FoodShop").collection("cart");
 
     app.get("/", async (req, res) => {
       console.log("Food Shop server is running");
-      res.send("Server runing");
+      res.send("FoodShop Server running");
     });
 
     app.get("/foods", async (req, res) => {
@@ -62,6 +63,96 @@ async function run() {
             .toArray();
           res.send(result);
         }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+
+    // Cart api here
+
+    // get a cart
+    app.get("/my-cart", async (req, res) => {
+      try {
+        const query = {};
+        const cart = await cartCollection.find(query).toArray();
+        res.send(cart);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+    app.get("/cart", async (req, res) => {
+      try {
+        const { id } = req.query;
+        console.log("id:", id);
+
+        const result = await cartCollection.findOne(query);
+        if (result) {
+          res.json(result);
+        } else {
+          res.json({}); // Send an empty object if the food is not in the cart
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+
+    app.post("/add-cart", async (req, res) => {
+      try {
+        const doc = req.body;
+        const query = {
+          foodId: req.body.foodId,
+        };
+        const alreadyAddedCart = await cartCollection.findOne(query);
+        if (alreadyAddedCart)
+          return res.send({
+            message: "This product already added in your cart",
+          });
+
+        const result = await cartCollection.insertOne(doc);
+
+        res.send(result);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+
+    // update cart quantity
+
+    app.put("/cart/:id", async (req, res) => {
+      try {
+        const { id } = req.params;
+
+        const { quantity } = req.body;
+        const query = { foodId: id };
+        const updatedCart = await cartCollection.findOneAndUpdate(
+          query,
+          { $set: { quantity: quantity } },
+          { returnDocument: "after" } // Returns the updated document
+        );
+        console.log(updatedCart);
+        if (updatedCart.foodId) {
+          res.json(updatedCart);
+        } else {
+          res.status(404).json({ error: "Cart item not found" });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+    // delete a cart
+    app.delete("/cart/:id", async (req, res) => {
+      try {
+        const { id } = req.params;
+
+        const query = { foodId: id };
+        console.log(id);
+        const result = await cartCollection.deleteOne(query);
+        res.send(result);
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal server error" });
