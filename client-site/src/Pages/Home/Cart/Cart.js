@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FaCartPlus } from "react-icons/fa6";
+import { FaCartPlus, FaTrash } from "react-icons/fa6";
 const Cart = ({ toggleCart, cartVisible }) => {
+  const [quantity, setQuantity] = useState(1);
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
   return (
     <div
       style={{ display: cartVisible ? "block" : "none" }}
@@ -26,14 +36,46 @@ const Cart = ({ toggleCart, cartVisible }) => {
           Close
         </button>
       </div>
-      <div className=" p-4 overflow-y-auto">
-        <div className="space-y-2 font-medium">
-          <img src="https://i.ibb.co/7WwwFNk/7-3-600x600.png" alt="" />
+      <div className=" p-1.5 overflow-y-auto border border-white rounded-lg my-3 mx-1  relative">
+        <span
+          className="absolute top-1 right-1 bg-white p-1 text-[#fe5443] cursor-pointer text-xs rounded font-bold"
+          // onClick={handleRemoveItem}
+        >
+          <FaTrash></FaTrash>
+        </span>
+        {/* cart food  */}
+        <div className="py-1 font-medium flex gap-1 items-center">
+          <img
+            src="https://i.ibb.co/7WwwFNk/7-3-600x600.png"
+            alt=""
+            className="bg-gray-600 w-16 h-20"
+          />
+          {/* Quantity  */}
           <div>
-            <h3 className="text-sm font-semibold text-white">Chicken fries</h3>
+            <h3 className="text-sm font-bold text-white">Chicken fries</h3>
             <p className="text-xs text-white">Category</p>
+            <div className="flex items-center mt-4 ">
+              <button
+                className="bg-gray-300 px-2.5 py-1.5  rounded-l "
+                onClick={handleDecrement}
+              >
+                -
+              </button>
+              <input
+                className="bg-white text-center py-2 w-10 text-xs"
+                value={quantity}
+                readOnly
+              />
+              <button
+                className="bg-gray-300 px-2 py-1.5 rounded-r"
+                onClick={handleIncrement}
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
+        <p className="text-white text-right font-bold -mt-3.5">120$</p>
       </div>
     </div>
   );
