@@ -9,7 +9,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.y5svw3w.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.vtwnpfe.mongodb.net/?retryWrites=true&w=majority`;
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -19,9 +20,25 @@ const client = new MongoClient(uri, {
 });
 async function run() {
   try {
+    const foodCollection = client.db("FoodShop").collection("Foods");
+    const foodCategoryCollection = client
+      .db("FoodShop")
+      .collection("FoodCategory");
+
     app.get("/", async (req, res) => {
-      console.log("Shovon's Gallery server is running");
+      console.log("Food Shop server is running");
       res.send("Server runing");
+    });
+
+    app.get("/foods", async (req, res) => {
+      try {
+        const query = {};
+        const foods = await foodCollection.find(query).toArray();
+        res.send(foods);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
     });
   } finally {
   }
@@ -32,5 +49,5 @@ run().catch((error) => {
 });
 
 app.listen(port, () => {
-  console.log(`Gurukul server is running on ${port}`);
+  console.log(`Food Shop server is running on ${port}`);
 });

@@ -10,9 +10,10 @@ const FoodCard = ({ product }) => {
         className="object-cover object-center w-full rounded-t-md h-60 bg-gray-500"
       />
       <div className="flex flex-col justify-between p-6 space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-semibold">Donec lectus leo</h2>
+        <div className="space-y-1">
+          <h2 className="text-2xl font-semibold">{name}</h2>
           <p className="text-sm font-semibold">{price}$/each</p>
+          <p className="font-semibold">{category}</p>
           <p className="text-gray-800">
             Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.
           </p>
