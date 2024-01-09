@@ -3,7 +3,7 @@
 ## Project Link
 
 - [Live site](https://foodshopbp.netlify.app/)
-- [GitHub Link](https://foodshopbp.netlify.app/)
+- [GitHub Link](https://github.com/SaifullaJubair/food-shop)
 
 ## Technology Stack
 
