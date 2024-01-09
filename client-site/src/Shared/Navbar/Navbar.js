@@ -8,7 +8,7 @@ const Navbar = () => {
   const [myCart, setMyCart] = useState([]);
   const { cartRefetch } = useContext(AuthContext);
   useEffect(() => {
-    fetch("http://localhost:5000/my-cart")
+    fetch("https://food-shop-server-site.vercel.app/my-cart")
       .then((res) => res.json())
       .then((data) => {
         setMyCart(data);

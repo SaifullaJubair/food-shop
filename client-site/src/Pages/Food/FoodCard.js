@@ -19,7 +19,7 @@ const FoodCard = ({ food }) => {
       ratingsCount,
       img,
     };
-    fetch("http://localhost:5000/add-cart", {
+    fetch("https://food-shop-server-site.vercel.app/add-cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

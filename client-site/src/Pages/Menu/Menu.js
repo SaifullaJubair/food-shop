@@ -6,7 +6,7 @@ const Menu = () => {
   const [menuList, steMenuList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-menu")
+    fetch("https://food-shop-server-site.vercel.app/all-menu")
       .then((res) => res.json())
       .then((data) => {
         steMenuList(data);

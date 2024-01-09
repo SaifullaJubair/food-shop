@@ -11,7 +11,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
     useContext(AuthContext);
   const [total, setTotal] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:5000/my-cart")
+    fetch("https://food-shop-server-site.vercel.app/my-cart")
       .then((res) => res.json())
       .then((data) => {
         let total = 0;
@@ -39,7 +39,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
 
   const handleDeletePost = (item) => {
     // console.log(post);
-    fetch(`http://localhost:5000/cart/${item?.foodId}`, {
+    fetch(`https://food-shop-server-site.vercel.app/cart/${item?.foodId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -66,7 +66,7 @@ const Cart = ({ toggleCart, cartVisible }) => {
   const updateQuantity = (value, item) => {
     console.log(value, item);
     if (item.quantity + value != 0) {
-      fetch(`http://localhost:5000/cart/${item?.foodId}`, {
+      fetch(`https://food-shop-server-site.vercel.app/cart/${item?.foodId}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
