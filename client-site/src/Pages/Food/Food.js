@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
-import fakeData from "../../FakeData/foods.json";
-import { Link } from "react-router-dom";
+// import fakeData from "../../FakeData/foods.json";
+import { Link, useLoaderData } from "react-router-dom";
 const Food = () => {
+  const foods = useLoaderData();
+  console.log(foods);
   return (
     <div className=" max-w-[1400px] mx-auto">
       <h1 className="text-3xl font-bold text-center  mt-3 text-[#fe5443]">
@@ -52,7 +54,7 @@ const Food = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2  my-2 grid-cols-1 gap-2 mx-auto ">
-        {fakeData.map((product) => (
+        {foods.map((product) => (
           <FoodCard key={product.id} product={product} />
         ))}
       </div>

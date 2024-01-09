@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuList from "./MenuList";
-import foodCategory from "../../FakeData/category.json";
 
 const Menu = () => {
+  const [menuList, steMenuList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/all-menu")
+      .then((res) => res.json())
+      .then((data) => {
+        steMenuList(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <div className="max-w-[1440px] mx-auto">
       <h1 className="text-3xl font-bold text-center  mt-6 text-[#fe5443]">
@@ -25,7 +37,7 @@ const Menu = () => {
       </div>
 
       <div className="grid lg:grid-cols-4 md:grid-cols-2  my-2 grid-cols-1 gap-2 mx-auto  my-12">
-        {foodCategory.map((category) => (
+        {menuList.map((category) => (
           <MenuList key={category.id} category={category}></MenuList>
         ))}
       </div>
