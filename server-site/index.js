@@ -40,6 +40,15 @@ async function run() {
         res.status(500).json({ error: "Internal server error" });
       }
     });
+    app.get("/all-menu", async (req, res) => {
+      try {
+        const result = await foodCategoryCollection.find({}).toArray();
+        res.send(result);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
 
     app.get("/menu/:categoryName", async (req, res) => {
       try {
